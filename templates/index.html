@@ -1,34 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Price Prediction</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Price Prediction</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  />
+
+  <style>
+   body {
+    background-image: url('/static/car.webp') ;/* ✅ Flask me absolute path likhna hota hai */
+    background-size: cover;         /* pura background fill kare */
+    background-repeat: no-repeat;   /* image repeat na ho */
+    background-position: center;    /* center me dikhai de */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+      margin-top: 80px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h1, h3 {
+      color: white;
+      text-align: center;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      background-color: #f4f4f4;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .btn-primary {
+      background-color: #28a745;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #218838;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center mt-5">Car Price Prediction</h1>
-        
-        <!-- Form to take input from the user -->
-        <form method="POST" action="/predict" class="mt-4">
-            <div class="form-group">
-                <label for="present_price">Present Price (in thousands):</label>
-                <input type="number" class="form-control" id="present_price" name="present_price" required>
-            </div>
-            <div class="form-group">
-                <label for="driven_kms">Driven Kms:</label>
-                <input type="number" class="form-control" id="driven_kms" name="driven_kms" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        
-        <!-- Display the prediction result -->
-        
-        <h3 class="mt-4">Predicted Car Price: {{ prediction }} (in thousands)</h3>
-        
-    </div>
+  <div class="container">
+    <h1 class="text-center mt-5">Car Price Prediction</h1>
 
-   
+    <!-- Form to take input from the user -->
+    <form method="POST" action="/predict" class="mt-4">
+      <div class="form-group">
+        <label for="present_price">Present Price (in thousands):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="present_price"
+          name="present_price"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="driven_kms">Driven Kms:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="driven_kms"
+          name="driven_kms"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <!-- Display the prediction result -->
+    <h3 class="mt-4">
+      Predicted Car Price: {{ prediction }} (in thousands)
+    </h3>
+  </div>
 </body>
 </html>
